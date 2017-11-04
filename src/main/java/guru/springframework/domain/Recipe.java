@@ -47,6 +47,12 @@ public class Recipe {
         return id;
     }
 
+    public Recipe addIngredient(Ingredient ingredient) {
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+        return this;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -120,7 +126,8 @@ public class Recipe {
     }
 
     public void setNotes(Notes notes) {
-        this.notes = notes;
+        this.notes = notes;              // added in lec 106
+        notes.setRecipe(this);
     }
 
     public Set<Ingredient> getIngredients() {
